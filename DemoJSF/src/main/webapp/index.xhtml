@@ -7,6 +7,11 @@
 <h:head></h:head> 
 <body>
  
+ 	<div>
+ 		User Role = #{user.role}<br />
+ 		User Premium = #{user.premium} <br />
+ 	</div>
+ 
 	<div>
 		Hallo Welt
 		<br />
@@ -17,6 +22,15 @@
 		<h:link value="Zweite Seite - explizite Navigation" outcome="explizit" />
 		<br />
 		<h:link value="Erfolg Seite - explizite Navigation" outcome="success" />
+		<br />
+		<h:link value="Implizite Navigation mit Controller" outcome="#{pageController.moveToSuccess()}" />
+		<hr />
+		<h:link value="Nutzerverwaltung" outcome="#{user.role}" />
+		<hr />
+		<h:form>
+			<h:commandButton action="#{user.sudo()}" value="Sudo" /><br />
+			<h:commandButton action="#{user.changePremium()}" value="Change Premium" />
+		</h:form>
 	</div>
 
 </body>
