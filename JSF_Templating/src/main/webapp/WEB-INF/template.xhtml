@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<body>
+
+	<!-- Header -->
+	<div>
+		<ui:include src="/WEB-INF/header.xhtml" />
+	</div>
+	<!-- Header -->
+
+	<!-- Navigation -->
+	<div>
+		<ui:include src="/WEB-INF/navigation.xhtml" />
+	</div>
+	<!-- Navigation -->
+
+	<!-- Inhalt/content -->
+	<div>
+		<ui:insert name="inhalt-oben">
+		Hier könnte ihre Werbung stehen
+		</ui:insert>
+	</div>
+	<div>
+		<ui:insert name="inhalt-unten"/>
+	</div>
+	<!-- Inhalt/content -->
+
+
+	<!-- footer -->
+	<div>
+		<ui:include src="/WEB-INF/footer.xhtml" />
+	</div>
+	<!-- footer -->
+</body>
+</html>
