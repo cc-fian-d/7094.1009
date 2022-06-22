@@ -1,8 +1,10 @@
 package ctrl;
 
 import javax.enterprise.context.Dependent;
+import javax.enterprise.context.RequestScoped;
 
-@Dependent
+//@Dependent
+@RequestScoped
 public class PayPal implements Payment {
 
 	@Override
@@ -17,4 +19,9 @@ public class PayPal implements Payment {
 
 	}
 
+	
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
 }

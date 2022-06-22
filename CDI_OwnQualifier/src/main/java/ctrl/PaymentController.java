@@ -13,6 +13,8 @@ public class PaymentController {
 	private Payment payment;
 	
 	public void doCheckout() {
+		System.out.println(payment.getClass());
+		System.out.println(payment.hashCode());
 		payment.checkAccount();
 		payment.buy();
 		// logging

@@ -2,10 +2,9 @@ package ctrl;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.inject.Default;
-import javax.inject.Named;
 
-@Dependent
+@RequestScoped
+//@Dependent
 @Test
 public class TestPayment implements Payment {
 
@@ -14,11 +13,19 @@ public class TestPayment implements Payment {
 		System.out.println("checkAccount at TestPayment");
 
 	}
+	
+	public TestPayment() {
+		System.out.println("Testpayment wird erzeugt");
+	}
 
 	@Override
 	public void buy() {
 		System.out.println("buy at TestPayment");
-
+	}
+	
+	@Override
+	public int hashCode() {
+		return super.hashCode();
 	}
 
 }
