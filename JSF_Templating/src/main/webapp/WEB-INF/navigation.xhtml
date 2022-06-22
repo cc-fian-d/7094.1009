@@ -8,8 +8,13 @@
 <body>
 	<ui:composition>
 		<hr />
-		Hier entsteht die Navigation
+		Herzlich Willkommen #{user.name}<br />
+		
+		#{user} : #{user.hashCode()}
+		<br />
+		#{user.premium} : #{user.role}
 		<hr />
+		
 	</ui:composition>
 </body>
 </html>

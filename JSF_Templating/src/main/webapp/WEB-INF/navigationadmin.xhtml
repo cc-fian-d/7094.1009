@@ -6,16 +6,15 @@
 
 <h:head></h:head>
 <body>
-
 	<ui:composition>
-		<h:form>
-			<h:commandButton action="#{user.sudo()}" value="Sudo" />
-			<h:commandButton action="#{user.changePremium()}" value="Premium" />
-		</h:form>
-
 		<hr />
-	(C) 2022 J2EE Workshop 7094.1009
-	
+		Administrations Navigation #{user.name}<br />
+		
+		#{user} : #{user.hashCode()}
+		<br />
+		#{user.premium} : #{user.role}
+		<hr />
+		
 	</ui:composition>
 </body>
 </html>
