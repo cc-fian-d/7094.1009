@@ -6,16 +6,30 @@ import java.util.ArrayList;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name = Buch.QUERY_FINDALL, query = "SELECT b FROM Buch b" ),
+	@NamedQuery(name = Buch.QUERY_FIND_BY_ID, query = "SELECT b FROM Buch b WHERE b.id =:id" ),
+	@NamedQuery(name = Buch.QUERY_FIND_BY_TITLE, query = "SELECT b FROM Buch b WHERE b.titel LIKE :" + Buch.PARAMETER_FIND_BY_TITLE )})
+@EntityListeners(BuchListener.class)
 public class Buch {
 
+	
+	public static final String QUERY_FINDALL = "find_all_books";
+	public static final String QUERY_FIND_BY_ID = "find_books_by_id";
+	public static final String QUERY_FIND_BY_TITLE = "find_books_by_title";
+	public static final String PARAMETER_FIND_BY_TITLE = "titel";
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
