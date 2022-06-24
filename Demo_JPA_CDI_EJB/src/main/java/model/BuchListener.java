@@ -26,7 +26,7 @@ public class BuchListener {
 	 *            executed or cascaded. This method is synchronous with the remove
 	 *            operation.
 	 */
-	@PostLoad
+	//@PostLoad
 	public void buchPostLoad(Buch b) {
 		System.out.println(b);
 	}

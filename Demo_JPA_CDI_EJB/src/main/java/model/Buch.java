@@ -19,7 +19,7 @@ import javax.persistence.OneToOne;
 @Entity
 @NamedQueries({
 	@NamedQuery(name = Buch.QUERY_FINDALL, query = "SELECT b FROM Buch b" ),
-	@NamedQuery(name = Buch.QUERY_FIND_BY_ID, query = "SELECT b FROM Buch b WHERE b.id =:id" ),
+	@NamedQuery(name = Buch.QUERY_FIND_BY_ID, query = "SELECT b FROM Buch b WHERE b.id =:" + Buch.PARAMETER_FIND_BY_id ),
 	@NamedQuery(name = Buch.QUERY_FIND_BY_TITLE, query = "SELECT b FROM Buch b WHERE b.titel LIKE :" + Buch.PARAMETER_FIND_BY_TITLE )})
 @EntityListeners(BuchListener.class)
 public class Buch {
@@ -27,6 +27,7 @@ public class Buch {
 	
 	public static final String QUERY_FINDALL = "find_all_books";
 	public static final String QUERY_FIND_BY_ID = "find_books_by_id";
+	public static final String PARAMETER_FIND_BY_id = "id";
 	public static final String QUERY_FIND_BY_TITLE = "find_books_by_title";
 	public static final String PARAMETER_FIND_BY_TITLE = "titel";
 	

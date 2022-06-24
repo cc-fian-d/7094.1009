@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+	Kunden Service
+
+		<h:form>
+		<div>
+			<h:outputLabel value="Vorname" for="inputVorname" />
+			<h:inputText id="inputVorname" value="#{kunde.vorname}" />
+		</div>
+		<div>
+			<h:outputLabel value="Nachname" for="inputNachname" />
+			<h:inputText id="inputNachname" value="#{kunde.nachname}" />
+		</div>
+		<h:commandButton action="#{kundenhandler.createKunde()}" value="Speichern" />
+	</h:form>
+
+</body> 
+</html>

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Generated;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,6 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
+@RequestScoped
+@Named("autor")
 public class Autor {
 
 	@Id
@@ -21,8 +25,8 @@ public class Autor {
 
 	private String nachname;
 	private String vorname;
-	
-	@OneToMany(cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
+
+	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	private List<Buch> buecher;
 
 	public int getId() {
@@ -56,7 +60,7 @@ public class Autor {
 	public void setBuecher(List<Buch> buecher) {
 		this.buecher = buecher;
 	}
-	
+
 	public Autor() {
 		this.setBuecher(new ArrayList<Buch>());
 	}
@@ -66,6 +70,13 @@ public class Autor {
 		return "Autor [id=" + id + ", nachname=" + nachname + ", vorname=" + vorname + "]";
 	}
 
-
+	@Override
+	public Autor clone(){
+		Autor tmp = new Autor();
+		tmp.setBuecher(this.getBuecher());
+		tmp.setNachname(this.getNachname());
+		tmp.setVorname(this.getVorname());
+		return tmp;
+	}
 
 }
